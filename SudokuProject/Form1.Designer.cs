@@ -57,7 +57,7 @@
             // 
             this.MediumB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.MediumB.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MediumB.Location = new System.Drawing.Point(45, 307);
+            this.MediumB.Location = new System.Drawing.Point(256, 258);
             this.MediumB.Margin = new System.Windows.Forms.Padding(4);
             this.MediumB.Name = "MediumB";
             this.MediumB.Size = new System.Drawing.Size(167, 41);
@@ -69,7 +69,7 @@
             // 
             this.HardB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.HardB.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.HardB.Location = new System.Drawing.Point(45, 356);
+            this.HardB.Location = new System.Drawing.Point(504, 258);
             this.HardB.Margin = new System.Windows.Forms.Padding(4);
             this.HardB.Name = "HardB";
             this.HardB.Size = new System.Drawing.Size(167, 41);
@@ -92,7 +92,7 @@
             // 
             this.LeadB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.LeadB.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LeadB.Location = new System.Drawing.Point(300, 444);
+            this.LeadB.Location = new System.Drawing.Point(357, 447);
             this.LeadB.Margin = new System.Windows.Forms.Padding(4);
             this.LeadB.Name = "LeadB";
             this.LeadB.Size = new System.Drawing.Size(167, 41);
@@ -103,7 +103,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(150, 13);
+            this.pictureBox1.Location = new System.Drawing.Point(173, 13);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(285, 131);
@@ -115,7 +115,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Yi Baiti", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(274, 131);
+            this.label2.Location = new System.Drawing.Point(297, 131);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(209, 38);
@@ -126,7 +126,7 @@
             // 
             this.ExitB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ExitB.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ExitB.Location = new System.Drawing.Point(199, 520);
+            this.ExitB.Location = new System.Drawing.Point(256, 523);
             this.ExitB.Margin = new System.Windows.Forms.Padding(4);
             this.ExitB.Name = "ExitB";
             this.ExitB.Size = new System.Drawing.Size(167, 41);
@@ -138,7 +138,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(126, 451);
+            this.label3.Location = new System.Drawing.Point(183, 454);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(198, 27);
@@ -150,7 +150,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(565, 574);
+            this.ClientSize = new System.Drawing.Size(684, 581);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ExitB);
             this.Controls.Add(this.label2);
