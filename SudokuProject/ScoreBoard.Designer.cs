@@ -72,7 +72,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(274, 21);
+            this.label1.Location = new System.Drawing.Point(384, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(155, 27);
             this.label1.TabIndex = 0;
@@ -99,7 +99,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(235, 103);
+            this.label4.Location = new System.Drawing.Point(289, 103);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 27);
             this.label4.TabIndex = 3;
@@ -108,7 +108,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(351, 103);
+            this.label5.Location = new System.Drawing.Point(448, 103);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(91, 27);
             this.label5.TabIndex = 4;
@@ -117,7 +117,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(487, 103);
+            this.label6.Location = new System.Drawing.Point(632, 103);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 27);
             this.label6.TabIndex = 5;
@@ -126,7 +126,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(596, 103);
+            this.label7.Location = new System.Drawing.Point(779, 103);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 27);
             this.label7.TabIndex = 6;
@@ -225,7 +225,7 @@
             // Date1
             // 
             this.Date1.AutoSize = true;
-            this.Date1.Location = new System.Drawing.Point(235, 179);
+            this.Date1.Location = new System.Drawing.Point(289, 179);
             this.Date1.Name = "Date1";
             this.Date1.Size = new System.Drawing.Size(51, 27);
             this.Date1.TabIndex = 17;
@@ -234,7 +234,7 @@
             // Date2
             // 
             this.Date2.AutoSize = true;
-            this.Date2.Location = new System.Drawing.Point(235, 252);
+            this.Date2.Location = new System.Drawing.Point(289, 252);
             this.Date2.Name = "Date2";
             this.Date2.Size = new System.Drawing.Size(51, 27);
             this.Date2.TabIndex = 18;
@@ -243,7 +243,7 @@
             // Date3
             // 
             this.Date3.AutoSize = true;
-            this.Date3.Location = new System.Drawing.Point(235, 322);
+            this.Date3.Location = new System.Drawing.Point(289, 322);
             this.Date3.Name = "Date3";
             this.Date3.Size = new System.Drawing.Size(51, 27);
             this.Date3.TabIndex = 19;
@@ -252,7 +252,7 @@
             // Date4
             // 
             this.Date4.AutoSize = true;
-            this.Date4.Location = new System.Drawing.Point(235, 392);
+            this.Date4.Location = new System.Drawing.Point(289, 392);
             this.Date4.Name = "Date4";
             this.Date4.Size = new System.Drawing.Size(51, 27);
             this.Date4.TabIndex = 20;
@@ -261,7 +261,7 @@
             // Date5
             // 
             this.Date5.AutoSize = true;
-            this.Date5.Location = new System.Drawing.Point(235, 462);
+            this.Date5.Location = new System.Drawing.Point(289, 462);
             this.Date5.Name = "Date5";
             this.Date5.Size = new System.Drawing.Size(51, 27);
             this.Date5.TabIndex = 21;
@@ -270,7 +270,7 @@
             // Dif1
             // 
             this.Dif1.AutoSize = true;
-            this.Dif1.Location = new System.Drawing.Point(351, 179);
+            this.Dif1.Location = new System.Drawing.Point(448, 179);
             this.Dif1.Name = "Dif1";
             this.Dif1.Size = new System.Drawing.Size(87, 27);
             this.Dif1.TabIndex = 22;
@@ -279,7 +279,7 @@
             // Dif2
             // 
             this.Dif2.AutoSize = true;
-            this.Dif2.Location = new System.Drawing.Point(351, 252);
+            this.Dif2.Location = new System.Drawing.Point(448, 252);
             this.Dif2.Name = "Dif2";
             this.Dif2.Size = new System.Drawing.Size(87, 27);
             this.Dif2.TabIndex = 23;
@@ -288,7 +288,7 @@
             // Dif3
             // 
             this.Dif3.AutoSize = true;
-            this.Dif3.Location = new System.Drawing.Point(355, 322);
+            this.Dif3.Location = new System.Drawing.Point(452, 322);
             this.Dif3.Name = "Dif3";
             this.Dif3.Size = new System.Drawing.Size(87, 27);
             this.Dif3.TabIndex = 24;
@@ -297,7 +297,7 @@
             // Dif4
             // 
             this.Dif4.AutoSize = true;
-            this.Dif4.Location = new System.Drawing.Point(351, 392);
+            this.Dif4.Location = new System.Drawing.Point(448, 392);
             this.Dif4.Name = "Dif4";
             this.Dif4.Size = new System.Drawing.Size(87, 27);
             this.Dif4.TabIndex = 25;
@@ -306,7 +306,7 @@
             // Dif5
             // 
             this.Dif5.AutoSize = true;
-            this.Dif5.Location = new System.Drawing.Point(355, 462);
+            this.Dif5.Location = new System.Drawing.Point(452, 462);
             this.Dif5.Name = "Dif5";
             this.Dif5.Size = new System.Drawing.Size(87, 27);
             this.Dif5.TabIndex = 26;
@@ -315,7 +315,7 @@
             // Time1
             // 
             this.Time1.AutoSize = true;
-            this.Time1.Location = new System.Drawing.Point(494, 179);
+            this.Time1.Location = new System.Drawing.Point(639, 179);
             this.Time1.Name = "Time1";
             this.Time1.Size = new System.Drawing.Size(51, 27);
             this.Time1.TabIndex = 27;
@@ -324,7 +324,7 @@
             // Time2
             // 
             this.Time2.AutoSize = true;
-            this.Time2.Location = new System.Drawing.Point(494, 252);
+            this.Time2.Location = new System.Drawing.Point(639, 252);
             this.Time2.Name = "Time2";
             this.Time2.Size = new System.Drawing.Size(51, 27);
             this.Time2.TabIndex = 28;
@@ -333,7 +333,7 @@
             // Time3
             // 
             this.Time3.AutoSize = true;
-            this.Time3.Location = new System.Drawing.Point(494, 322);
+            this.Time3.Location = new System.Drawing.Point(639, 322);
             this.Time3.Name = "Time3";
             this.Time3.Size = new System.Drawing.Size(51, 27);
             this.Time3.TabIndex = 29;
@@ -342,7 +342,7 @@
             // Time4
             // 
             this.Time4.AutoSize = true;
-            this.Time4.Location = new System.Drawing.Point(494, 392);
+            this.Time4.Location = new System.Drawing.Point(639, 392);
             this.Time4.Name = "Time4";
             this.Time4.Size = new System.Drawing.Size(51, 27);
             this.Time4.TabIndex = 30;
@@ -351,7 +351,7 @@
             // Time5
             // 
             this.Time5.AutoSize = true;
-            this.Time5.Location = new System.Drawing.Point(494, 462);
+            this.Time5.Location = new System.Drawing.Point(639, 462);
             this.Time5.Name = "Time5";
             this.Time5.Size = new System.Drawing.Size(51, 27);
             this.Time5.TabIndex = 31;
@@ -360,7 +360,7 @@
             // Sco1
             // 
             this.Sco1.AutoSize = true;
-            this.Sco1.Location = new System.Drawing.Point(600, 179);
+            this.Sco1.Location = new System.Drawing.Point(783, 179);
             this.Sco1.Name = "Sco1";
             this.Sco1.Size = new System.Drawing.Size(61, 27);
             this.Sco1.TabIndex = 32;
@@ -369,7 +369,7 @@
             // Sco2
             // 
             this.Sco2.AutoSize = true;
-            this.Sco2.Location = new System.Drawing.Point(600, 252);
+            this.Sco2.Location = new System.Drawing.Point(783, 252);
             this.Sco2.Name = "Sco2";
             this.Sco2.Size = new System.Drawing.Size(61, 27);
             this.Sco2.TabIndex = 33;
@@ -378,7 +378,7 @@
             // Sco3
             // 
             this.Sco3.AutoSize = true;
-            this.Sco3.Location = new System.Drawing.Point(596, 322);
+            this.Sco3.Location = new System.Drawing.Point(779, 322);
             this.Sco3.Name = "Sco3";
             this.Sco3.Size = new System.Drawing.Size(61, 27);
             this.Sco3.TabIndex = 34;
@@ -387,7 +387,7 @@
             // Sco4
             // 
             this.Sco4.AutoSize = true;
-            this.Sco4.Location = new System.Drawing.Point(596, 392);
+            this.Sco4.Location = new System.Drawing.Point(779, 392);
             this.Sco4.Name = "Sco4";
             this.Sco4.Size = new System.Drawing.Size(61, 27);
             this.Sco4.TabIndex = 35;
@@ -396,7 +396,7 @@
             // Sco5
             // 
             this.Sco5.AutoSize = true;
-            this.Sco5.Location = new System.Drawing.Point(600, 462);
+            this.Sco5.Location = new System.Drawing.Point(783, 462);
             this.Sco5.Name = "Sco5";
             this.Sco5.Size = new System.Drawing.Size(61, 27);
             this.Sco5.TabIndex = 36;
@@ -405,7 +405,7 @@
             // button1
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(289, 541);
+            this.button1.Location = new System.Drawing.Point(399, 550);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(120, 37);
             this.button1.TabIndex = 37;
@@ -417,7 +417,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(684, 581);
+            this.ClientSize = new System.Drawing.Size(884, 611);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Sco5);
             this.Controls.Add(this.Sco4);
@@ -459,7 +459,7 @@
             this.Font = new System.Drawing.Font("Microsoft Yi Baiti", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "ScoreBoard";
             this.Text = "ScoreBoard";
             this.ResumeLayout(false);
