@@ -1,12 +1,20 @@
+using System.Configuration;
 using System.IO;
+using static System.Net.WebRequestMethods;
 
 namespace SudokuProject
 {
     public partial class MainScreen : Form
     {
+        
+        private string path = ConfigurationManager.AppSettings["filePath"];
+        private string file = ConfigurationManager.AppSettings["fileName"];
+
         public MainScreen()
         {
             InitializeComponent();
+
+           
         }
 
         private void GenPuz_Click(object sender, EventArgs e)
@@ -15,9 +23,9 @@ namespace SudokuProject
             progressBar.Step = 2;
             progressBar.Value = 0;
 
-            Thread t = new Thread(updateProgressBar);
+            Thread t = new Thread(ShowOnProgressBar);
             t.IsBackground= true;
-            t.Name = "updateProgressBar_THREAD";
+            t.Name = "ShowOnProgressBar_THREAD";
             t.Start();
         }
 
@@ -83,6 +91,19 @@ namespace SudokuProject
             {
                 StatusL.Text = "Status: " + text;
             }
+        }
+
+        private void doWork(object state)
+        {
+            SudokuGrid sg = new SudokuGrid(path, file);
+            ChangeProgressLabel("Working...");
+            sg.setUpPlacementOrders();
+            ShowOnProgressBar();
+            for (int i = 0; i < 9; i++)
+                sg.doInitialPlacementFill(i);
+
+            ShowOnProgressBar();
+            sg.populate(this);
         }
 
     }

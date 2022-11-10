@@ -590,5 +590,179 @@ namespace SudokuProject
             }
             MessageBox.Show(result);
         }
-    }
+
+        public void populate(MainScreen ui)
+        {
+            /* Логіка для "else": якщо у полі не відображаються елементи необхідно відредагувати попередній крок, а саме
+             * розміщення поля, тобто з попереднім полем алгоритм має працювати в зворотньому напрямку 
+             * та заповнювати клітини починаючи з 9-ти і закінчуючи 1-цею та генерувати нову спробу розміження на ігровому полі
+             * Зауваження: кожен раз, коли розмістити цифру у квадраті неможливо,
+             * та необхідно замінити попереднє місце розташування номеру та створити нову спробу розміщення */
+            try
+            {
+                popTopLeft();
+                ui.ShowOnProgressBar();
+                Debug.WriteLine("[SudokuGrid] PopTopLeft - Done (" + stopWatch.Elapsed + "s)");
+                popTopMid();
+                ui.ShowOnProgressBar();
+                Debug.WriteLine("[SudokuGrid] PopTopMid - Done (" + stopWatch.Elapsed + "s)");
+                popTopRight();
+                ui.ShowOnProgressBar();
+                Debug.WriteLine("[SudokuGrid] PopTopRight - Done (" + stopWatch.Elapsed + "s)");
+                popMidLeft();
+                ui.ShowOnProgressBar();
+                Debug.WriteLine("[SudokuGrid] PopMidLeft - Done (" + stopWatch.Elapsed + "s)");
+                popMidMid();
+                ui.ShowOnProgressBar();
+                Debug.WriteLine("[SudokuGrid] PopMidMid - Done (" + stopWatch.Elapsed + "s)");
+                popMidRight();
+                ui.ShowOnProgressBar();
+                Debug.WriteLine("[SudokuGrid] PopMidRight - Done (" + stopWatch.Elapsed + "s)");
+                popBottomLeft();
+                ui.ShowOnProgressBar();
+                Debug.WriteLine("[SudokuGrid] PopBottomLeft - Done (" + stopWatch.Elapsed + "s)");
+                popBottomMiddle();
+                ui.ShowOnProgressBar();
+                Debug.WriteLine("[SudokuGrid] PopBottomMiddle - Done (" + stopWatch.Elapsed + "s)");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error: " + e.Message);
+            }
+            int gridAttempts = 1, maxGridAttempts = 10;
+            /* Якщо заповнити ничній правий великий квадрат можливо, 
+             * тоді рішення для сгенерованого пазлу знайдено та воно зберігається до файлу*/
+            bool success = false;
+            if (popBottomRight())
+            {
+                Debug.WriteLine("[SudokuGrid] PopBottomRight - Done (" + stopWatch.Elapsed + "s)");
+                success = true;
+            }
+            /* В іншому випадку необхідно спробувати заповнити попередній малий квадрат та 
+             * встановити нові послідовності розміщення для нижнього центрального великого квадрату */
+            else 
+            {
+                try
+                {
+                    while (maxGridAttempts > 0)
+                    {
+                        Debug.WriteLine("[SudokuGrid] Failure on grid attempt " + gridAttempts + "  - Re-attempting (" + stopWatch.Elapsed + "s)");
+                        resetBoxToCompleteZero(8);
+                        resetBoxToCompleteZero(7);
+                        gridAttempts++;
+                        popBottomMiddle();
+
+                        // Якщо правий нижній великий квадрат можливо заповнити, тоді рішення записується у файл
+                        if (popBottomRight())
+                        {
+                            Debug.WriteLine("[SudokuGrid] PopBottomRight - Done (" + stopWatch.Elapsed + "s)");
+                            success = true;
+                            break;
+                        }
+                        else
+                        {
+                            maxGridAttempts--;
+                        }
+                        ui.ShowOnProgressBar();
+                    }
+                    maxGridAttempts = 10;
+                    if (!success)
+                    {
+                        while (maxGridAttempts > 0)
+                        {
+                            Debug.WriteLine("[SudokuGrid] Failure on grid attempt " + gridAttempts + "  - Re-attempting (" + stopWatch.Elapsed + "s)");
+                            resetBoxToCompleteZero(8);
+                            resetBoxToCompleteZero(7);
+                            resetBoxToCompleteZero(6);
+                            gridAttempts++;
+                            popBottomLeft();
+                            popBottomMiddle();
+
+                            // Якщо правий нижній великий квадрат можливо заповнити, тоді рішення записується у файл
+                            if (popBottomRight())
+                            {
+                                Debug.WriteLine("[SudokuGrid] PopBottomRight - Done (" + stopWatch.Elapsed + "s)");
+                                success = true;
+                                break;
+                            }
+                            else
+                            {
+                                maxGridAttempts--;
+                            }
+                            ui.ShowOnProgressBar();
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Error: " + e.Message);
+                }
+            }
+            if (success)
+            {
+                //додаємо головоломку до файлу збереження
+                ui.completeProgressBar();
+                ui.ChangeProgressLabel("Success!");
+                Debug.WriteLine("[SudokuGrid] Grid created successfully in " + gridAttempts + " attempts! (" + stopWatch.Elapsed + "s)");
+            }
+            else
+            {
+                ui.completeProgressBar();
+                ui.ChangeProgressLabel("Grid failure! Try running again?");
+            }
+        }
+
+        //Функція для заповнення верхнього лівого великого квадрату
+        private bool popTopLeft()
+        {
+            return true;
+        }
+        //Функція для заповнення верхнього середнього великого квадрату
+        private bool popTopMid()
+        {
+            return true;
+        }
+        //Функція для заповнення верхнього правого великого квадрату
+        private bool popTopRight()
+        {
+            return true;
+        }
+        //Функція для заповнення середнього лівого великого квадрату
+        private bool popMidLeft()
+        {
+            return true;
+        }
+        //Функція для заповнення середнього середнього великого квадрату
+        private bool popMidMid()
+        {
+            return true;
+        }
+        //Функція для заповнення середнього правого великого квадрату
+        private bool popMidRight()
+        {
+            return true;
+        }
+
+        //Функція для заповнення нижнього лівого великого квадрату
+        private bool popBottomLeft()
+        {
+            return true;
+        }
+        //Функція для заповнення нижнього середнього великого квадрату
+        private bool popBottomMiddle()
+        {
+            return true;
+        }
+        //Функція для заповнення нижнього правого великого квадрату
+        private bool popBottomRight()
+        {
+            return true;
+        }
+        //Функція для 
+        private void resetBoxToCompleteZero(int boxPos)
+        {
+            
+        }
+        
+     }
 }
