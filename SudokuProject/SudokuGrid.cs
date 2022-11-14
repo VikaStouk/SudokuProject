@@ -715,7 +715,41 @@ namespace SudokuProject
         //Функція для заповнення верхнього лівого великого квадрату
         private bool popTopLeft()
         {
-            return true;
+            bool result = true;
+
+            List<List<int>> topLeftBox = blank3x3Box();
+            int numToPopulate = 1;
+            int posInBoxToTry = 0;
+
+            try
+            {
+                for (int i = 0; i < 9; i++)
+                {
+                    posInBoxToTry = placementOrderTopLeft[i][0];
+                    placementOrderTopLeft[i].RemoveAt(0);
+                    int row = getRowFromBoxPos(0, posInBoxToTry);
+                    int col = getColFromBoxPos(0, posInBoxToTry);
+
+                    bool isPlacementOk = placeNumber(numToPopulate, topLeftBox, posInBoxToTry, 0);
+                    while (!isPlacementOk)
+                    {
+                        posInBoxToTry = placementOrderTopLeft[i][0];
+                        placementOrderTopLeft[i].RemoveAt(0);
+                        row = getRowFromBoxPos(0, posInBoxToTry);
+                        col = getColFromBoxPos(0, posInBoxToTry);
+                        isPlacementOk = placeNumber(numToPopulate, topLeftBox, posInBoxToTry, 0);
+                    }
+                    topLeftBox[row % 3][col % 3] = numToPopulate;
+
+                    numToPopulate++;
+                    addBoxWeHavebeenWorkingOnToGrid(topLeftBox, 1);
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error: " + e.Message);
+            }
+            return result;
         }
         //Функція для заповнення верхнього середнього великого квадрату
         private bool popTopMid()
@@ -758,11 +792,149 @@ namespace SudokuProject
         {
             return true;
         }
-        //Функція для 
+        //Функція для зачистки ігрового поля до нульових значень
         private void resetBoxToCompleteZero(int boxPos)
         {
             
         }
-        
-     }
+        //Функція для спроби розміщення цифри в певному місці на ігровому полі.
+        private bool placeNumber(int numToPlace, List<List<int>> currentBox, int posInBox, int boxPosInGrid)
+        {
+            int row = getRowFromBoxPos(boxPosInGrid, posInBox);
+            int col = getColFromBoxPos(boxPosInGrid, posInBox);
+
+            bool result = true;
+            /** Якщо ми не можемо розмістити цифру у певному місці, тоді повертається "false",
+             * метод виклику спробує змінити параметри (позицію або цифру для розміщення) та після цього
+             * знову звернеться до цього методу**/
+            if (!validPlacement(col, row, numToPlace, currentBox))
+                result = false;
+
+            return result;
+        }
+        //Перевірка на валідність комірки для розміщення цифр
+        private bool validPlacement(int col, int row, int searchNumber, List<List<int>> box)
+        {
+            
+            bool result = true;
+
+            // Перевірка на те, що ми знаходимося в НЕ ЗАПОВНЕНОМУ
+            if (box[row % 3][col % 3] != 0)
+            {
+                result = false;
+                return result;
+            }
+            //Перевірка чи існує цифра у рядку або стовпці ігрового поля
+            for (int i = 0; i < 9; i++)
+            {
+                if (grid[row][i] == searchNumber)
+                {
+                    result = false;
+                    break;
+                }
+                if (grid[i][col] == searchNumber)
+                {
+                    result = false;
+                    break;
+                }
+            }
+
+            return result;
+        }
+        //Функція, що допомогає додати великий квадрат над яким йде робота до сітки 
+        private void addBoxWeHavebeenWorkingOnToGrid(List<List<int>> boxWeHaveBeenWorkingOn, int boxPos)
+        {
+            switch (boxPos)
+            {
+                case 1:
+                    for (int i = 0; i < 3; i++)
+                        for (int j = 0; j < 3; j++)
+                            grid[i][j] = boxWeHaveBeenWorkingOn[i][j];
+                    break;
+                case 2:
+                    for (int i = 0; i < 3; i++)
+                        for (int j = 3; j < 6; j++)
+                            grid[i][j] = boxWeHaveBeenWorkingOn[i][j - 3];
+                    break;
+                case 3:
+                    for (int i = 0; i < 3; i++)
+                        for (int j = 6; j < 9; j++)
+                            grid[i][j] = boxWeHaveBeenWorkingOn[i][j - 6];
+                    break;
+                case 4:
+                    for (int i = 3; i < 6; i++)
+                        for (int j = 0; j < 3; j++)
+                            grid[i][j] = boxWeHaveBeenWorkingOn[i - 3][j];
+                    break;
+                case 5:
+                    for (int i = 3; i < 6; i++)
+                        for (int j = 3; j < 6; j++)
+                            grid[i][j] = boxWeHaveBeenWorkingOn[i - 3][j - 3];
+                    break;
+                case 6:
+                    for (int i = 3; i < 6; i++)
+                        for (int j = 6; j < 9; j++)
+                            grid[i][j] = boxWeHaveBeenWorkingOn[i - 3][j - 6];
+                    break;
+                case 7:
+                    for (int i = 6; i < 9; i++)
+                        for (int j = 0; j < 3; j++)
+                            grid[i][j] = boxWeHaveBeenWorkingOn[i - 6][j];
+                    break;
+                case 8:
+                    for (int i = 6; i < 9; i++)
+                        for (int j = 3; j < 6; j++)
+                            grid[i][j] = boxWeHaveBeenWorkingOn[i - 6][j - 3];
+                    break;
+                case 9:
+                    for (int i = 6; i < 9; i++)
+                        for (int j = 6; j < 9; j++)
+                            grid[i][j] = boxWeHaveBeenWorkingOn[i - 6][j - 6];
+                    break;
+            } 
+        }
+        //отримання рядка із позицій поля
+        private int getRowFromBoxPos(int thisBoxLocation, int positionInBox)
+        {
+            int rowResult = 0;
+            if (thisBoxLocation == 3 || thisBoxLocation == 4 || thisBoxLocation == 5)
+                rowResult += 3;
+            if (thisBoxLocation == 6 || thisBoxLocation == 7 || thisBoxLocation == 8)
+                rowResult += 6;
+            if (positionInBox == 3 || positionInBox == 4 || positionInBox == 5)
+                rowResult += 1;
+            if (positionInBox == 6 || positionInBox == 7 || positionInBox == 8)
+                rowResult += 2;
+            return rowResult;
+        }
+        //отримання колонки з позиції поля
+        private int getColFromBoxPos(int thisBoxLocation, int positionInBox)
+        {
+            int colResult = 0;
+            if (thisBoxLocation == 1 || thisBoxLocation == 4 || thisBoxLocation == 7)
+                colResult += 3;
+            if (thisBoxLocation == 2 || thisBoxLocation == 5 || thisBoxLocation == 8)
+                colResult += 6;
+            if (positionInBox == 1 || positionInBox == 4 || positionInBox == 7)
+                colResult += 1;
+            if (positionInBox == 2 || positionInBox == 5 || positionInBox == 8)
+                colResult += 2;
+            return colResult;
+        }
+        //вивести сітку
+        public void printGrid()
+        {
+            string result = "";
+            for (int i = 0; i < 9; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    result += grid[i][j] + " ";
+                }
+                result += "\n";
+            }
+            MessageBox.Show(result);
+
+        }
+    }
 }
