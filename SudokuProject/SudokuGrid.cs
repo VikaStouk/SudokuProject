@@ -755,7 +755,6 @@ namespace SudokuProject
         private bool popTopMid()
         {
             return true;
-
         }
         //Функція для заповнення верхнього правого великого квадрату
         private bool popTopRight()
@@ -796,65 +795,7 @@ namespace SudokuProject
         //Функція для зачистки ігрового поля до нульових значень
         private void resetBoxToCompleteZero(int boxPos)
         {
-            switch (boxPos)
-            {
-                case 0:
-                    for (int i = 0; i < 3; i++)
-                        for (int j = 0; j < 3; j++)
-                            grid[i][j] = 0;
-                    break;
-                case 1:
-                    for (int i = 0; i < 3; i++)
-                        for (int j = 3; j < 6; j++)
-                            grid[i][j] = 0;
-                    break;
-                case 2:
-                    for (int i = 0; i < 3; i++)
-                        for (int j = 6; j < 9; j++)
-                            grid[i][j] = 0;
-                    break;
-                case 3:
-                    for (int i = 3; i < 6; i++)
-                        for (int j = 0; j < 3; j++)
-                            grid[i][j] = 0;
-                    break;
-                case 4:
-                    for (int i = 3; i < 6; i++)
-                        for (int j = 3; j < 6; j++)
-                            grid[i][j] = 0;
-                    break;
-                case 5:
-                    for (int i = 3; i < 6; i++)
-                        for (int j = 6; j < 9; j++)
-                            grid[i][j] = 0;
-                    break;
-                case 6:
-                    for (int i = 6; i < 9; i++)
-                        for (int j = 0; j < 3; j++)
-                            grid[i][j] = 0;
-                    break;
-                case 7:
-                    for (int i = 6; i < 9; i++)
-                        for (int j = 3; j < 6; j++)
-                            grid[i][j] = 0;
-                    break;
-                case 8:
-                    for (int i = 6; i < 9; i++)
-                        for (int j = 6; j < 9; j++)
-                            grid[i][j] = 0;
-                    break;
-            } 
-            doInitialPlacementFill(boxPos);
-        }
-        //Видалення цифри з комірки
-        private void removeNumFromBox(List<List<int>> boxTocheck, int numToRemove)
-        {
-            for (int i = 0; i < 3; i++)
-                for (int j = 0; j < 3; j++)
-                {
-                    if (boxTocheck[i][j] == numToRemove)
-                        boxTocheck[i][j] = 0;
-                }
+            
         }
         //Функція для спроби розміщення цифри в певному місці на ігровому полі.
         private bool placeNumber(int numToPlace, List<List<int>> currentBox, int posInBox, int boxPosInGrid)
@@ -980,7 +921,6 @@ namespace SudokuProject
                 colResult += 2;
             return colResult;
         }
-        
         //вивести сітку
         public void printGrid()
         {
@@ -995,158 +935,6 @@ namespace SudokuProject
             }
             MessageBox.Show(result);
 
-        }
-        //Вивід цифр у поле на єкрані
-        public void showNumbersToScreen(GameScreen window, int boxPos)
-        {
-            string concatName = "";
-            switch (boxPos)
-            {
-                case 0:
-                    for (int i = 0; i < 3; i++)
-                    {
-                        for (int j = 0; j < 3; j++)
-                        {
-                            concatName = i + "" + j;
-                            Control[] controls = window.Controls.Find(concatName, true);
-                            if (controls.Length == 1)
-                            {
-                                Button b = controls[0] as Button;
-                                b.Enabled = false;
-                                b.Text = grid[i][j].ToString();
-                            }
-                        }
-                    }
-                    break;
-                case 1:
-                    for (int i = 0; i < 3; i++)
-                    {
-                        for (int j = 3; j < 6; j++)
-                        {
-                            concatName = i + "" + j;
-                            Control[] controls = window.Controls.Find(concatName, true);
-                            if (controls.Length == 1)
-                            {
-                                Button b = controls[0] as Button;
-                                b.Enabled = false;
-                                b.Text = grid[i][j].ToString();
-                            }
-                        }
-                    }
-                    break;
-                case 2:
-                    for (int i = 0; i < 3; i++)
-                    {
-                        for (int j = 6; j < 9; j++)
-                        {
-                            concatName = i + "" + j;
-                            Control[] controls = window.Controls.Find(concatName, true);
-                            if (controls.Length == 1)
-                            {
-                                Button b = controls[0] as Button;
-                                b.Enabled = false;
-                                b.Text = grid[i][j].ToString();
-                            }
-                        }
-                    }
-                    break;
-                case 3:
-                    for (int i = 3; i < 6; i++)
-                    {
-                        for (int j = 0; j < 3; j++)
-                        {
-                            concatName = i + "" + j;
-                            Control[] controls = window.Controls.Find(concatName, true);
-                            if (controls.Length == 1)
-                            {
-                                Button b = controls[0] as Button;
-                                b.Enabled = false;
-                                b.Text = grid[i][j].ToString();
-                            }
-                        }
-                    }
-                    break;
-                case 4:
-                    for (int i = 3; i < 6; i++)
-                    {
-                        for (int j = 3; j < 6; j++)
-                        {
-                            concatName = i + "" + j;
-                            Control[] controls = window.Controls.Find(concatName, true);
-                            if (controls.Length == 1)
-                            {
-                                Button b = controls[0] as Button;
-                                b.Enabled = false;
-                                b.Text = grid[i][j].ToString();
-                            }
-                        }
-                    }
-                    break;
-                case 5:
-                    for (int i = 3; i < 6; i++)
-                    {
-                        for (int j = 6; j < 9; j++)
-                        {
-                            concatName = i + "" + j;
-                            Control[] controls = window.Controls.Find(concatName, true);
-                            if (controls.Length == 1)
-                            {
-                                Button b = controls[0] as Button;
-                                b.Enabled = false;
-                                b.Text = grid[i][j].ToString();
-                            }
-                        }
-                    }
-                    break;
-                case 6:
-                    for (int i = 6; i < 9; i++)
-                    {
-                        for (int j = 0; j < 3; j++)
-                        {
-                            concatName = i + "" + j;
-                            Control[] controls = window.Controls.Find(concatName, true);
-                            if (controls.Length == 1)
-                            {
-                                Button b = controls[0] as Button;
-                                b.Enabled = false;
-                                b.Text = grid[i][j].ToString();
-                            }
-                        }
-                    }
-                    break;
-                case 7:
-                    for (int i = 6; i < 9; i++)
-                    {
-                        for (int j = 3; j < 6; j++)
-                        {
-                            concatName = i + "" + j;
-                            Control[] controls = window.Controls.Find(concatName, true);
-                            if (controls.Length == 1)
-                            {
-                                Button b = controls[0] as Button;
-                                b.Enabled = false;
-                                b.Text = grid[i][j].ToString();
-                            }
-                        }
-                    }
-                    break;
-                case 8:
-                    for (int i = 6; i < 9; i++)
-                    {
-                        for (int j = 6; j < 9; j++)
-                        {
-                            concatName = i + "" + j;
-                            Control[] controls = window.Controls.Find(concatName, true);
-                            if (controls.Length == 1)
-                            {
-                                Button b = controls[0] as Button;
-                                b.Enabled = false;
-                                b.Text = grid[i][j].ToString();
-                            }
-                        }
-                    }
-                    break;
-            }
         }
     }
 }
